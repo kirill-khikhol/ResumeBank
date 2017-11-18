@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="registration.css">
+    <script src="registration.js"></script>
+</head>
+<body>
+<form action="registration2.html" method="post">
+    <label>E-mail:<br>
+        <input name="login" type="email" required maxlength="15" id="login"></label>
+    <label>Password:<br>
+        <input name="password" type="password" required maxlength="20" minlength="8" id="password1"></label>
+    <label>Confirm password:<br>
+        <input name="password" type="password" required maxlength="20" id="password2"></label>
+    <label><input type="radio" name="role" value="company"> I am a company</label>
+    <label><input type="radio" name="role" value="jobseeker" checked> I am a jobseeker</label>
+    <label>Type your secret question:<br>
+        <input name="question" type="text" id="question" required placeholder="For example, 'my pet's name'"></label>
+    <label>Answer:<br>
+        <input name="answer" type="text" id="answer" required></label>
+    <label>Telephone number(optional):<br>
+        <input name="telephonNumber" type="tel" id="telephonNumber" pattern="^[0-9]+$" value="05"></label>
+<label><input name="agree" type="checkbox" id="agree" required>I have read <a href="">something</a> and agree</label>
+    <button type="submit" id="send">Send</button>
+</form>
+</body>
+</html>
