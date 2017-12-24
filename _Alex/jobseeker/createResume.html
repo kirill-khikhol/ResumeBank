@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Create Resume</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+
+
+    <!-- Custom styles for this template -->
+    <link href="createResume.css" rel="stylesheet">
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <a class="navbar-brand" href="#">BankResume</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="#">For Applicants </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Search Employees</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<main role="main">
+
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+        <div class="container">
+            <h1 class="display-3">Create Resume!</h1>
+            <p id="notice">Please fill form below to proceed with your cv</p>
+            <span id="name">Ivan Ivanov   <label class="checkbox-inline"><input type="checkbox" value="">Show in Resume</label><br>
+                          </span>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Example row of columns -->
+        <div class="row">
+            <div class="col-md-4">
+                <div id="cvType">
+                    <fieldset>
+                        <legend>Choose type:</legend>
+                        <input type="radio" name="type" value="Backend"> Backend Developer<br>
+                        <input type="radio" name="type" value="FrontEnd" checked> FrontEnd/Web Developer<br>
+                        <input type="radio" name="type" value="FullStack"> FullStack Developer<br>
+                        <input type="radio" name="type" value="Mobile"> Mobile Software Developer<br>
+                        <input type="radio" name="type" value="QA"> QA Testing<br>
+                    </fieldset>
+                </div>
+            </div>
+            <div class="col-md-4 divexperienceSummary">
+                <div id="experience">
+                    <form>
+                        Company name:<br>
+                        <input type="text" name="companyname" value="Index LTD">
+                        <br>
+                        Position:<br>
+                        <input type="text" name="position" value="FrontEnd Developer">
+                        <br>
+                        Web-site:<br>
+                        <input type="text" name="web-site" value="www.intetex.co.il">
+                        <br>
+                        Start-Date:<br>
+                        <input type="date" name="startdate" value="2017-11-17">
+                        <br>
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div id="education">
+                    <form>
+                        University name:<br>
+                        <input type="text" name="companyname" value="Index LTD">
+                        <br>
+                        Faculty:<br>
+                        <input type="text" name="position" value="FrontEnd Developer">
+                        <br>
+                        Web-site:<br>
+                        <input type="text" name="web-site" value="www.intetex.co.il">
+                        <br>
+                        Stard-Date:<br>
+                        <input type="date" name="startdate" value="2017-11-17">
+                        <br>
+                    </form>
+
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div id="recommendations">
+                    <form>
+                        Company name:<br>
+                        <input type="text" name="companyname" value="Index LTD">
+                        <br>
+                        Name of contact:<br>
+                        <input type="text" name="position" value="FrontEnd Developer">
+                        <br>
+                        Telephone:<br>
+                        <input type="text" name="web-site" value="www.intetex.co.il">
+                        <br>
+                        <input type="checkbox" id="show" name="skills" value="show">
+                        <label for="TypeScript">Show in Resume</label>
+                        <br>
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div id="About">
+                    About me:<br>
+                    <textarea>Tell as about yourself...</textarea>
+                </div>
+                <button type="button" class="btn btn-secondary" style="margin-top: 100px">Submit</button>
+            </div>
+            <div class="col-md-4">
+                <div id="experienceSummary">
+                    <p>Experience Summary:</p>
+                    <fieldset>
+                        <legend>Choose your skills:</legend>
+                        <div>
+                            <input type="checkbox" id="java" name="skills" value="java">
+                            <label for="java">Java</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="HTML5" name="skills" value="HTML5">
+                            <label for="HTML5">HTML5</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="CSS3" name="skills" value="CSS3">
+                            <label for="CSS3">CSS3</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="JavaScript" name="skills" value="JavaScript">
+                            <label for="JavaScript">JavaScript</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="JQuery" name="skills" value="JQuery">
+                            <label for="JQuery">JQuery</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="AngularJS" name="skills" value="AngularJS">
+                            <label for="AngularJS">AngularJS</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="ReactJS" name="skills" value="ReactJS">
+                            <label for="ReactJS">ReactJS</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="TypeScript" name="skills" value="TypeScript">
+                            <label for="TypeScript">TypeScript</label>
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+        </div>
+
+    </div> <!-- /container -->
+
+</main>
+
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+</body>
+</html>

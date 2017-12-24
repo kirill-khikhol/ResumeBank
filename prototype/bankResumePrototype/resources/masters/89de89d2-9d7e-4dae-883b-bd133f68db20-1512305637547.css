@@ -1,0 +1,65 @@
+#m-89de89d2-9d7e-4dae-883b-bd133f68db20 #m-89de89d2-regJS_input_nameCourse input::-webkit-input-placeholder {
+  color: #B4B4B4;
+}
+#m-89de89d2-9d7e-4dae-883b-bd133f68db20 #m-89de89d2-regJS_input_nameCourse input::-moz-placeholder {
+  color: #B4B4B4;
+}
+#m-89de89d2-9d7e-4dae-883b-bd133f68db20 #m-89de89d2-regJS_input_nameCourse input:-moz-placeholder {
+  color: #B4B4B4;
+}
+#m-89de89d2-9d7e-4dae-883b-bd133f68db20 #m-89de89d2-regJS_input_nameCourse input:-ms-input-placeholder {
+  color: #B4B4B4;
+}
+#m-89de89d2-9d7e-4dae-883b-bd133f68db20 #m-89de89d2-regJS_input_nameCourse {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  padding-left: 5px;
+  width: 214px;
+  height: 27px;
+  background-color: #FFFFFF;
+  background-image: none;
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-top-color: #C8C8C8;
+  border-right-width: 1px;
+  border-right-style: solid;
+  border-right-color: #C8C8C8;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: #C8C8C8;
+  border-left-width: 1px;
+  border-left-style: solid;
+  border-left-color: #C8C8C8;
+  box-shadow: none;
+  text-shadow: none;
+  cursor: text;
+}
+#m-89de89d2-9d7e-4dae-883b-bd133f68db20 #m-89de89d2-regJS_input_nameCourse .valign {
+  vertical-align: middle;
+  line-height: 12.0pt;
+}
+#m-89de89d2-9d7e-4dae-883b-bd133f68db20 #m-89de89d2-regJS_input_nameCourse input {
+  color: #000000;
+  text-align: left;
+  text-decoration: none;
+  font-family: 'Arial',Arial;
+  font-size: 12.0pt;
+  font-style: normal;
+  font-weight: 400;
+  text-shadow: none;
+}
+#m-89de89d2-9d7e-4dae-883b-bd133f68db20 #m-89de89d2-eduYear_2 {
+  position: absolute;
+  top: 5px;
+  left: 241px;
+  width: 180px;
+}
+#m-89de89d2-9d7e-4dae-883b-bd133f68db20 #m-89de89d2-eduYear_2 .valign {
+  width: 162px;
+}
+#m-89de89d2-9d7e-4dae-883b-bd133f68db20.master > #loadMark {
+  width: 1px;
+  visibility: hidden;
+  display: none;
+}

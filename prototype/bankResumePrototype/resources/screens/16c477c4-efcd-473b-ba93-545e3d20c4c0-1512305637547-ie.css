@@ -1,0 +1,30 @@
+#s-16c477c4-efcd-473b-ba93-545e3d20c4c0 #s-regCom_text_ContactPerson {
+  -ms-transform: rotate(0.0deg);
+}
+#s-16c477c4-efcd-473b-ba93-545e3d20c4c0 #s-regCom_button_submit {
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-top-color: #CDCDCD;
+  border-right-width: 1px;
+  border-right-style: solid;
+  border-right-color: #CDCDCD;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: #CDCDCD;
+  border-left-width: 1px;
+  border-left-style: solid;
+  border-left-color: #CDCDCD;
+  border-radius: 3px 3px 3px 3px;
+  padding-top: 2px;
+  padding-right: 2px;
+  padding-bottom: 2px;
+  padding-left: 2px;
+  -pie-background: linear-gradient(to bottom,#FFFFFF,#E6E6E6);
+  -pie-poll: false;
+  -ms-transform: rotate(0.0deg);
+}
+#s-16c477c4-efcd-473b-ba93-545e3d20c4c0 > #loadMark {
+  width: 1px;
+  visibility: hidden;
+  display: none;
+}
