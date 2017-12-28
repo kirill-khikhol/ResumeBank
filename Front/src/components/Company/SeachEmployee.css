@@ -16,10 +16,13 @@
     border: 2px solid #8399ac;
 }
 .SearchResult{
-
     border: 2px solid #8399ac;
     width: 60%;
     height: auto;
     margin: auto;
     overflow-scrolling:auto;
+}
+.MinSalary{
+    margin-top: -20px;
+margin-left: 35px;
 }

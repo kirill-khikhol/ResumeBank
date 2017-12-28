@@ -2,6 +2,7 @@ import React, {Component}from 'react';
 import Header from '../common/header';
 import './SeachEmployee.css';
 import {NavLink,withRouter}from 'react-router-dom';
+import HttpProvider from '../Providers/HttpProvider'
 
 
 
@@ -38,7 +39,7 @@ class SearchEmployee extends Component{
                 yearsInWork:0,
                 skillsType:[],
                 verification:{verificationStatus:""},
-                cvType:"doc",
+                cvType:"",
                 minSalary:0
             }
         };
@@ -48,17 +49,42 @@ class SearchEmployee extends Component{
     };
 
 
+    insertResume=(resumeData)=>{
+        let resumes = {...this.state.resume};
+        for(let res of resumeData ){
+            resumes.push(res);
+        }
+        this.setState({'resume':resumes});
 
-    showCustomer(event){
-       console.log(event.target.value);
-    }
-    findResume=(data)=>{
-        console.log('action');
-        console.log(data);
     };
-    directionChooseHandler(event){}
-    verificationChooseHandler(event){}
-    experienceChooseHandler(event){}
+
+    findResume=(event)=>{
+        event.preventDefault();
+        console.log('action');
+        HttpProvider.searchResume(this.state.formData,this.insertResume);
+    };
+    salaryChooserHandler=(event)=>{
+        let FormData = {...this.state.formData};
+        FormData.minSalary = event.target.value;
+        this.setState({"formData":FormData});
+    };
+
+    directionChooseHandler=(event)=>{
+        let FormData = {...this.state.formData};
+        FormData.cvType = event.target.value;
+        this.setState({"formData":FormData});
+    };
+
+    verificationChooseHandler=(event)=>{
+        let FormData = {...this.state.formData};
+        FormData.verification.verificationStatus = event.target.value;
+        this.setState({"formData":FormData});
+    };
+    experienceChooseHandler=(event)=>{
+        let FormData = {...this.state.formData};
+        FormData.yearsInWork = event.target.value;
+        this.setState({"formData":FormData});
+    };
 
     checkBoxHandler=(event)=>{
         let skillsType;
@@ -75,31 +101,26 @@ class SearchEmployee extends Component{
         this.setState({"formData":FormData})
     };
 
-
   render(){
      let wasFound = this.state.resume.map((item,index)=>{
           return(
-              <div>
-                  <NavLink key ={index}
-                           to ={{pathname:"/Resume",'state':item}}
+              <div key ={index}>
+                  <NavLink  to ={{pathname:"/Resume",'state':item}}
                            activeClassName={"active"}>
-                      {index+". "}{item.personData.firstName +' '+item.personData.lastName}
+                      {1+index+". "}{item.personData.firstName +' '+item.personData.lastName}
                   </NavLink>
                    <br/>
               </div> )
           });
-
-
-
       const myForm = ( <div className="MyForm container">
           <h1>SEARCH EMPLOYEE</h1>
           <form onSubmit={this.findResume} className="form-horizontal form-group">
             <hr/>
              <div className="row">
                  <div className="form-group ">
-                     <lable for ="selectDirection" className="control-label col-sm-2">Direction of work:</lable>
+                     <lable htmlFor ="selectDirection" className="control-label col-sm-2">Direction of work:</lable>
                          <select name="direction" id = "selectDirection"
-                                 onChange={this.directionChooseHandler} className="col-sm-3">
+                                 onChange={this.directionChooseHandler} className="col-sm-3 ">
                              <option value="">Select a direction:</option>
                              <option value="BackEnd">BackEnd Developer</option>
                              <option value="FrontEnd">FrontEnd Developer</option>
@@ -108,22 +129,23 @@ class SearchEmployee extends Component{
                              <option value="QA">QA Manual testing</option>
                              <option value="QA">QA Automat testing</option>
                          </select>
-                 <lable for ="Verification" className="control-label col-sm-2">Verification:</lable>
-                 <select className="col-sm-3" id ="Verification" name="verification" onChange={this.verificationChooseHandler}>
+                 <label htmlFor ="Verification" className="control-label col-sm-2">Verification:</label>
+                 <select className="col-sm-3 " id ="Verification" name="verification" onChange={this.verificationChooseHandler}>
                      <option value="">Select a verification:</option>
                      <option value="yes">Yes</option>
                      <option value="3">No</option>
                  </select>
                 </div>
                  <div className="form-group">
-                     <lable for ="Verification" className="control-label col-sm-2">Experience:</lable>
-                     <select className="col-sm-3" id ="Experience" name="experience" onChange={this.experienceChooseHandler}>
+                     <lable htmlFor ="Verification" className="control-label col-sm-2">Experience:</lable>
+                     <select className="col-sm-3 " id ="Experience"
+                             name="experience" onChange={this.experienceChooseHandler}>
                          <option value="">Select a Experience:</option>
                          <option value="2">0-2 years</option>
                          <option value="3">3-5 years</option>
                          <option value="5">More than 5 years</option>
                      </select>
-                     <lable for ="Programming_language" className="control-label col-sm-2">Language&Technologies:</lable>
+                     <lable htmlFor ="Programming_language" className="control-label col-sm-2">Language&Technologies:</lable>
                      <div className="col-sm-4" id ="Programming_language">
                           <div className="col-sm-9 pull-left">
                              <label>
@@ -144,18 +166,31 @@ class SearchEmployee extends Component{
                                                   onChange={this.checkBoxHandler}/></label>
                              <label>React<input type="checkbox" name="language" value="React"
                                                 onChange={this.checkBoxHandler}/></label>
-                              <hr/>
-                              <label>Java <input type="checkbox" name="language" value="Java"/></label>
-                              <label>JavaScript<input type="checkbox" name="language" value="JS"/></label>
-                              <label>C++<input type="checkbox" name="language" value="C++"/></label>
-                              <label>SQL<input type="checkbox" name="language" value="SQL"/></label>
-                              <label>PHP<input type="checkbox" name="language" value="PHP"/></label>
-                              <label>RUBY<input type="checkbox" name="language" value="RUBY"/></label>
-                              <label>Angular<input type="checkbox" name="language" value="Angular"/></label>
-                              <label>React<input type="checkbox" name="language" value="React"/></label>
                           </div>
                      </div>
+
                  </div>
+                 <div className="row">
+                  <div className="col-sm-5">
+                 <div className="form-inline MinSalary">
+                 <div className="form-group">
+                             <lable htmlFor = "salaryInput" className="control-label" style={{marginRight:'25px'}}>Min Salary:</lable>
+                             <div className="input-group">
+                             <div className="input-group-addon">$</div>
+                             <input type="number" id = 'salaryInput' placeholder="Amount"
+                             onChange={this.salaryChooserHandler}/>
+                             <div className="input-group-addon">.00</div>
+                             </div>
+                 </div>
+                 </div>
+                     </div>
+                 </div>
+
+
+
+
+
+
              </div>
               <button type="submit" className="btn btn-primary"> Submit </button>
               <fieldset>
