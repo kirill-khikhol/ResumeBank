@@ -9,6 +9,7 @@ import CreateResume from "./components/Employee/CreateResume";
 import SearchEmployee from "./components/Company/SearchEmployee";
 import About from './components/about/AboutPage'
 import './App.css';
+import Resume from './components/Resume/Resume';
 
 class App extends Component {
   render() {
@@ -23,6 +24,7 @@ class App extends Component {
                 <Route path="/LogIn" exact component={LogIn} />
                 <Route path="/SignUp" exact component={SignUp} />
                 <Route path="/About" exact component={About} />
+                <Route path="/Resume" exact component={Resume} />
             </Switch>
       </div>
     );

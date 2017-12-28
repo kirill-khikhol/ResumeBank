@@ -1,0 +1,25 @@
+
+.MyForm{
+    border: 2px solid #8399ac;
+    width: 80%;
+    height: 80vh;
+    margin: auto;
+
+
+}
+.MyForm select{
+    margin-top: 5px;
+}
+.MyForm textarea{
+    width: 80%;
+    height: 80%;
+    border: 2px solid #8399ac;
+}
+.SearchResult{
+
+    border: 2px solid #8399ac;
+    width: 60%;
+    height: auto;
+    margin: auto;
+    overflow-scrolling:auto;
+}
