@@ -1,4 +1,31 @@
-const companyRegistration=<form>
+import React from 'react';
+import $ from 'jquery';
+
+function CompanyRegistration(){
+    function submitCompanyRegistration(e) {
+        e.preventDefault();
+        var elements=document.forms[0].elements;
+        var json={};
+        for(let i=0;i<elements.length-1;i++){
+            // console.log(elements[i]);
+            if(typeof document)json[elements[i].name]=elements[i].value;
+        }
+        console.log(json);
+        $.ajax({
+            async: true,
+            crossDomain: true,
+            // url: 'http://localhost:8080/company',
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json',
+                'cache-control': 'no-cache',
+                'postman-token': 'b412df5a-439f-28b6-10b4-1c5b81b407fe'
+            },
+            processData: false,
+            data: JSON.stringify()
+        });
+    }
+return <form>
     <label>Company name:<br/>
         <input required/></label><br/>
     <label>Company type:<br/>
@@ -34,5 +61,7 @@ const companyRegistration=<form>
         <label required>E-mail:<br/>
             <input type='email'/></label><br/>
     </fieldset>
-    <button type="submit">Send</button>
+    <button onClick={submitCompanyRegistration}>Send</button>
 </form>;
+}
+export default CompanyRegistration;

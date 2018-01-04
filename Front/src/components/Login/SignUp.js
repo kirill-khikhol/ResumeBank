@@ -1,6 +1,9 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import $ from 'jquery';
-
+import afterRegistration from './After';
+import WrongCredentials from './WrongCredentials';
+import NotSent from './NotSent';
 function SignUp(){
 
     function submitFirstRegistration(e) {
@@ -10,26 +13,78 @@ function SignUp(){
         var json={};
         for(let i=0; i<element.length-2;i++){
             json[element[i].name]=element[i].value;
-        }console.log(json);
+        }
 
-        $.ajax({crossDomain: true,
-            url: 'http://localhost:8080/account/registration',
-            method: 'POST',
-            // data: {"login":login,"password": password},
-            dataType: 'json',
-            contentType: 'application/json',
-            headers:{ "Access-Control-Allow-Origin": "*"},
-            //     "Access-Control-Allow-Methods: ": "GET",
-            //     "Access-Control-Allow-Headers: ": "Authorization",},
-            // })
+        console.log("Результат:"+json);
+        console.log(JSON.stringify(json));
+
+
+        $.ajax({
+            'async': true,
+            'crossDomain': true,
+            'url': 'http://localhost:8080/account/registration',
+            'method': 'POST',
+            'headers': {
+                'content-type': 'application/json',
+                'cache-control': 'no-cache',
+                'postman-token': 'b412df5a-439f-28b6-10b4-1c5b81b407fe'
+            },
+            'processData': false,
+            'data': JSON.stringify(json)
         })
             .done(function (resp) {
                 console.log(resp);
+                switch (resp){
+                    case "notActivated": ReactDOM.render(afterRegistration, document.getElementById('root'));
+                        break;
+                    case "wrongCredentials": ReactDOM.render(<WrongCredentials/>, document.getElementById('root'));
+                    break;
+                    case "noSendEmail": break;
+                    case "false": break;
+                }
             })
             .fail(function (xhr, status, error) {
                 for (let i of arguments)
                     console.log(i);
+                console.log(json);
             })
+    }
+    function mailValidate() {
+        let mail=$('#login');
+            let sendMail={};
+            sendMail['login']=$('#login')[0].value;
+        console.log(sendMail);
+        // console.log("mail[0].value);
+        $.ajax({
+            "async": true,
+            "crossDomain": true,
+            "url": "http://localhost:8080/account/isExist",
+            "method": "POST",
+            "headers": {
+                "content-type": "application/json",
+                "cache-control": "no-cache",
+                "postman-token": "e9187d34-6acb-965f-0ae9-ab9140ebbb1f"
+            },
+            "processData": false,
+          'data':JSON.stringify(sendMail)
+        })
+            .done(function (resp) {
+                switch (resp){
+                    case "ok":
+                        if(mail.hasClass('error')) mail.removeClass('error');
+                        mail.addClass('correct');
+                        mail.attr('title','');
+                        break;
+                    case "false": case "wrongRequest":
+                        if(mail.hasClass('correct')) mail.removeClass('correct');
+                        mail.addClass('error');
+                        mail.attr('title','try another login');
+                }
+            })
+            .fail(function (xhr,status, error) {
+                for (let i of arguments)
+                    console.log(i);
+            });
     }
     function passwordValidate() {
         let pas1 = $('#password1');
@@ -52,7 +107,7 @@ function SignUp(){
     }
 return <form action="registration2.html" method="post" name="firstRegistration">
     <label>E-mail:<br/>
-        <input name="login" type="email" required maxLength="15" id="login"/></label><br/>
+        <input name="login" type="email" required maxLength="50" id="login" onBlur={mailValidate}/></label><br/>
     <label>Password:<br/>
         <input name="password" type="password" required maxLength="30" minLength="8" id="password1" onChange={passwordValidate}/>
     </label><br/>
@@ -61,8 +116,8 @@ return <form action="registration2.html" method="post" name="firstRegistration">
     </label><br/>
     <select name="role" defaultValue='Account`s type:' required>
         <option disabled>Account`s type:</option>
-        <option value=''>Jobseeker</option>
-        <option value=''>Company</option>
+        <option value='JOB_SEEKER'>Jobseeker</option>
+        <option value='COMPANY'>Company</option>
     </select><br/><br/>
     <label>Choose your secret question:<br/>
         <select name="typeQuestion" defaultValue='' required>
